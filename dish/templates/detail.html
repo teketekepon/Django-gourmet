@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}グルメ{% endblock %}
+
+{% block contents %}
+  <article class="card section-stack">
+    <h1 class="page-title">{{ object.title }}</h1>
+
+    <p class="meta-text">
+      投稿日：{{ object.posted_at }} ／
+      <a href="{% url 'dish:dishs_cat' category=object.category.id %}">{{ object.category.title }}</a> ／
+      <a href="{% url 'dish:user_list' user=object.user.id %}">@{{ object.user.username }}</a>
+    </p>
+
+    {% if object.image %}
+      <img class="detail-media" src="{{ object.image.url }}" alt="{{ object.title }}">
+    {% endif %}
+
+    <p class="detail-comment">{{ object.comment }}</p>
+
+    <div class="actions-row">
+      <a href="{% url 'dish:index' %}" class="btn btn-outline">一覧へ戻る</a>
+      {% if request.user == object.user %}
+        <a href="{% url 'dish:dish_delete' object.pk %}" class="btn btn-danger">削除する</a>
+      {% endif %}
+    </div>
+  </article>
+
+{% endblock %}

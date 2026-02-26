@@ -1,0 +1,90 @@
+.app-shell {
+  min-height: 100vh;
+  background: #f6f7fb;
+  color: #17202a;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.app-header nav {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.app-main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.dish-grid {
+  margin-top: 16px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.dish-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 12px;
+}
+
+.dish-card img,
+.detail-image {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  max-height: 260px;
+}
+
+.placeholder {
+  height: 160px;
+  display: grid;
+  place-items: center;
+  background: #f3f4f6;
+  border-radius: 8px;
+}
+
+.form {
+  display: grid;
+  gap: 10px;
+  max-width: 520px;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+  padding: 8px 10px;
+}
+
+.error {
+  color: #b91c1c;
+}
+
+.linklike {
+  border: 0;
+  background: transparent;
+  color: #2563eb;
+  cursor: pointer;
+}
+

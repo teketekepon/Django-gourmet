@@ -1,0 +1,37 @@
+/* =========================================
+   detail.html 専用 CSS
+========================================= */
+.detail-wrapper {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+}
+
+.detail-title {
+    font-size: 1.8rem;
+    margin-top: 0;
+    border-left: 6px solid #d35400;
+    padding-left: 14px;
+    font-weight: bold;
+}
+
+.detail-meta {
+    margin: 10px 0 20px;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.detail-content {
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.8;
+}
+
+.detail-actions {
+    margin-top: 30px;
+}
+
+.detail-actions a {
+    margin-right: 15px;
+}

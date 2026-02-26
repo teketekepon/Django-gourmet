@@ -1,0 +1,14 @@
+<section class="card section-stack text-center">
+  <h1 class="page-title">グルメでグルメ</h1>
+  <p class="meta-text">グルメのためのグルメな世界</p>
+
+  <div class="actions-row justify-center">
+    {% if user.is_authenticated %}
+      <a href="{% url 'dish:post' %}" class="btn btn-primary">投稿する</a>
+      <a href="{% url 'accounts:logout' %}" class="btn btn-outline">ログアウト</a>
+    {% else %}
+      <a href="{% url 'accounts:signup' %}" class="btn btn-outline">サインアップ</a>
+      <a href="{% url 'accounts:login' %}" class="btn btn-primary">ログイン</a>
+    {% endif %}
+  </div>
+</section>

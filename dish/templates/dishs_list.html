@@ -1,0 +1,28 @@
+{% if object_list %}
+  <div class="dish-grid">
+    {% for record in object_list %}
+      <article class="card dish-card">
+        <h2 class="dish-title">
+          <a href="{% url 'dish:dish_detail' record.pk %}">{{ record.title }}</a>
+        </h2>
+
+        <p class="dish-meta">
+          <a class="chip" href="{% url 'dish:dishs_cat' category=record.category.id %}">{{ record.category.title }}</a>
+          <a class="chip" href="{% url 'dish:user_list' user=record.user.id %}">@{{ record.user.username }}</a>
+        </p>
+
+        {% if record.image %}
+          <a class="dish-image-link" href="{% url 'dish:dish_detail' record.pk %}">
+            <img class="dish-image" src="{{ record.image.url }}" alt="{{ record.title }}">
+          </a>
+        {% else %}
+          <a class="dish-image-link" href="{% url 'dish:dish_detail' record.pk %}">
+            <div class="dish-image-placeholder">画像はまだありません</div>
+          </a>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+{% else %}
+  <p class="empty-text">まだ投稿がありません。</p>
+{% endif %}

@@ -1,0 +1,58 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="グルメサイト">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}グルメサイト{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}">
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="site-shell site-header-inner">
+        <div class="brand-block">
+          <a class="brand-title" href="{% url 'dish:index' %}">グルメサイト</a>
+          <p class="brand-subtitle"></p>
+        </div>
+
+        <nav class="header-actions" aria-label="グローバルナビゲーション">
+          {% if user.is_authenticated %}
+            <a class="btn btn-outline" href="{% url 'dish:index' %}">一覧</a>
+            <a class="btn btn-primary" href="{% url 'dish:post' %}">投稿する</a>
+            <a class="btn btn-outline" href="{% url 'dish:mypage' %}">マイページ</a>
+            <form action="{% url 'accounts:logout' %}" method="post" class="inline-form">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-ghost">サインアウト</button>
+            </form>
+          {% else %}
+            <a class="btn btn-outline" href="{% url 'accounts:signup' %}">サインアップ</a>
+            <a class="btn btn-primary" href="{% url 'accounts:login' %}">サインイン</a>
+          {% endif %}
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <div class="site-shell content-shell">
+        {% if messages %}
+          <ul class="flash-list">
+            {% for message in messages %}
+              <li class="flash-item">{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {% block contents %}{% endblock %}
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-shell footer-inner">
+        <p>© Gourmet</p>
+        <a href="{% url 'dish:index' %}">ホームページ</a>
+      </div>
+    </footer>
+  </body>
+</html>

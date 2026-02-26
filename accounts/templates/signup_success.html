@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}登録完了{% endblock %}
+
+{% block contents %}
+  <section class="auth-wrap">
+    <div class="card auth-card section-stack text-center">
+      <h1 class="page-title">登録が完了しました</h1>
+      <p class="meta-text">サインインして料理投稿を始めましょう。</p>
+      <div class="actions-row justify-center">
+        <a href="{% url 'accounts:login' %}" class="btn btn-primary">ログインする</a>
+        <a href="{% url 'dish:index' %}" class="btn btn-outline">トップへ戻る</a>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+  

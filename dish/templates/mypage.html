@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}マイページ{% endblock %}
+
+{% block contents %}
+  {% if user.is_authenticated %}
+    <section class="card section-stack mb-16">
+      <h1 class="page-title">{{ user.username }}さんのマイページ</h1>
+      {% if object_list.count == 0 %}
+        <p class="meta-text">まだ投稿がありません。</p>
+      {% else %}
+        <p class="meta-text">投稿数 <strong>{{ object_list.count }}</strong> 件</p>
+      {% endif %}
+      <div class="actions-row">
+        <a href="{% url 'dish:post' %}" class="btn btn-primary">投稿する</a>
+      </div>
+    </section>
+  {% endif %}
+
+  {% include "dishs_list.html" %}
+{% endblock %}

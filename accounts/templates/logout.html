@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}サインアウト{% endblock %}
+
+{% block contents %}
+  <section class="auth-wrap">
+    <div class="card auth-card section-stack text-center">
+      <h1 class="page-title">サインアウトしました</h1>
+      <p class="meta-text">またのご利用をお待ちしています。</p>
+      <div class="actions-row justify-center">
+        <a href="{% url 'dish:index' %}" class="btn btn-primary">トップページへ</a>
+        <a href="{% url 'accounts:login' %}" class="btn btn-outline">再度サインイン</a>
+      </div>
+    </div>
+  </section>
+{% endblock %}

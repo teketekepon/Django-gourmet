@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Post Success{% endblock %}
+
+{% block contents %}
+  <section class="auth-wrap">
+    <div class="card auth-card section-stack text-center">
+      <h1 class="page-title">投稿が完了しました</h1>
+      <p class="meta-text">新しい料理がタイムラインに追加されました。</p>
+      <div class="actions-row justify-center">
+        <a href="{% url 'dish:index' %}" class="btn btn-primary">一覧を見る</a>
+        <a href="{% url 'dish:post' %}" class="btn btn-outline">続けて投稿する</a>
+      </div>
+    </div>
+  </section>
+{% endblock %}

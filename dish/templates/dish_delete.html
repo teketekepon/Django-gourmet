@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}削除する{% endblock %}
+
+{% block contents %}
+  <section class="auth-wrap">
+    <div class="card auth-card section-stack">
+      <h1 class="page-title">投稿を削除</h1>
+      <p>「{{ object.title }}」を削除します。よろしいですか？</p>
+
+      <form method="post" class="actions-row">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">削除する</button>
+        <a href="{% url 'dish:dish_detail' object.pk %}" class="btn btn-outline">キャンセル</a>
+      </form>
+    </div>
+  </section>
+{% endblock %}
